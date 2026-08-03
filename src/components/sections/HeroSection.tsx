@@ -179,7 +179,7 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* Full-Width Bottom Motivational Ticker Bar */}
-      <div className="w-full border-t border-b border-white/10 bg-[#030303]/90 backdrop-blur-md py-3.5 relative z-30 -mt-16 sm:-mt-20 lg:-mt-28">
+      <div className="w-full border-t border-b border-white/10 bg-[#030303]/90 backdrop-blur-md py-3.5 relative z-30 -mt-20 sm:-mt-24 lg:-mt-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center space-x-4 text-xs sm:text-sm font-heading font-semibold uppercase tracking-[0.25em]">
           <span className="text-gray-400">DISCIPLINE.</span>
           <span className="text-gray-400">DEDICATION.</span>
