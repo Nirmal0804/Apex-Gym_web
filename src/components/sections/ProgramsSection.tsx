@@ -92,7 +92,7 @@ export const ProgramsSection: React.FC = () => {
   return (
     <section
       id="programs"
-      className="relative w-full pt-8 sm:pt-10 lg:pt-12 pb-16 sm:pb-20 lg:pb-24 flex flex-col justify-start overflow-hidden bg-[#050505] select-none scroll-mt-20"
+      className="relative w-full pt-2 sm:pt-3 lg:pt-4 pb-16 sm:pb-20 lg:pb-24 flex flex-col justify-start overflow-hidden bg-[#050505] select-none scroll-mt-20"
     >
       {/* Background Layer 1: Huge Faded APEX Red Outline Watermark & Soft Radial Red Glow */}
       <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center overflow-hidden">
@@ -109,7 +109,7 @@ export const ProgramsSection: React.FC = () => {
       </div>
 
       {/* Main Container: 35% Left Column | 65% Right Column 2x2 Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col relative z-10 -mt-2 lg:-mt-4">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
 
           {/* Left Column (35% Width - lg:col-span-4) */}
