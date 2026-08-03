@@ -100,8 +100,8 @@ export const HeroSection: React.FC = () => {
             <Image
               src="/images/hero-athlete-isolated.png"
               alt="APEX FITNESS Bodybuilder"
-              width={995}
-              height={680}
+              width={383}
+              height={534}
               priority
               fetchPriority="high"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 995px"
