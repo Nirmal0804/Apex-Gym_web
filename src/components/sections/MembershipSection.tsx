@@ -33,8 +33,8 @@ const PricingCard: React.FC<PricingCardProps> = ({
     viewport={{ once: true, amount: 0.2 }}
     transition={{ duration: 0.7, delay }}
     className={`group relative w-full rounded-[24px] p-6 sm:p-8 flex flex-col justify-between transition-all duration-500 cursor-pointer select-none ${isFeatured
-        ? "bg-[#09090b]/95 backdrop-blur-xl border-2 border-red-600 shadow-[0_0_45px_rgba(220,38,38,0.4)] lg:-translate-y-4 z-20 hover:-translate-y-6 hover:shadow-[0_0_55px_rgba(220,38,38,0.55)] hover:border-red-500"
-        : "bg-[#09090b]/85 backdrop-blur-md border border-white/10 hover:border-red-600/60 shadow-[0_10px_35px_rgba(0,0,0,0.8)] hover:shadow-[0_15px_40px_rgba(220,38,38,0.28)] hover:-translate-y-2 z-10"
+      ? "bg-[#09090b]/95 backdrop-blur-xl border-2 border-red-600 shadow-[0_0_45px_rgba(220,38,38,0.4)] lg:-translate-y-4 z-20 hover:-translate-y-6 hover:shadow-[0_0_55px_rgba(220,38,38,0.55)] hover:border-red-500"
+      : "bg-[#09090b]/85 backdrop-blur-md border border-white/10 hover:border-red-600/60 shadow-[0_10px_35px_rgba(0,0,0,0.8)] hover:shadow-[0_15px_40px_rgba(220,38,38,0.28)] hover:-translate-y-2 z-10"
       }`}
   >
     {/* Featured "MOST POPULAR" Badge */}
@@ -94,8 +94,8 @@ const PricingCard: React.FC<PricingCardProps> = ({
           onSelectPlan();
         }}
         className={`w-full inline-flex items-center justify-center space-x-2 px-6 py-3.5 rounded-md font-heading text-xs sm:text-sm font-bold uppercase tracking-widest active:scale-95 transition-all duration-300 cursor-pointer ${isFeatured
-            ? "text-white bg-red-600 hover:bg-red-700 shadow-[0_4px_25px_rgba(220,38,38,0.6)] hover:shadow-[0_6px_30px_rgba(220,38,38,0.8)]"
-            : "text-white bg-transparent border border-red-600/60 hover:bg-red-600 hover:text-white"
+          ? "text-white bg-red-600 hover:bg-red-700 shadow-[0_4px_25px_rgba(220,38,38,0.6)] hover:shadow-[0_6px_30px_rgba(220,38,38,0.8)]"
+          : "text-white bg-transparent border border-red-600/60 hover:bg-red-600 hover:text-white"
           }`}
       >
         <span>{buttonText}</span>
@@ -130,7 +130,7 @@ export const MembershipSection: React.FC = () => {
       </div>
 
       {/* Main Container: Centered Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-center items-center relative z-10 my-auto">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col items-center relative z-10">
 
         {/* Section Header (Centered with Flanking Red Lines) */}
         <div className="flex flex-col items-center text-center space-y-4 max-w-2xl mb-12 sm:mb-16 lg:mb-20">

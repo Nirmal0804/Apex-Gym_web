@@ -109,7 +109,7 @@ export const ProgramsSection: React.FC = () => {
       </div>
 
       {/* Main Container: 35% Left Column | 65% Right Column 2x2 Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-center relative z-10 my-auto">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
 
           {/* Left Column (35% Width - lg:col-span-4) */}

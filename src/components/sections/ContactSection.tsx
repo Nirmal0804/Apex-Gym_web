@@ -14,7 +14,7 @@ export const ContactSection: React.FC = () => {
   return (
     <section
       id="contact"
-      className="relative w-full pt-8 sm:pt-10 lg:pt-12 pb-16 sm:pb-20 lg:pb-24 flex flex-col justify-start overflow-hidden bg-[#050505] select-none scroll-mt-20"
+      className="relative w-full min-h-screen pt-4 sm:pt-6 lg:pt-8 pb-16 sm:pb-20 lg:pb-24 flex flex-col justify-between overflow-hidden bg-[#050505] select-none scroll-mt-20"
     >
       {/* Toast Notification Container */}
       <Toast toast={toast} />
@@ -34,7 +34,7 @@ export const ContactSection: React.FC = () => {
       </div>
 
       {/* Main Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-center relative z-10 my-auto">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col relative z-10">
 
         {/* Section Header */}
         <div className="flex flex-col items-start space-y-4 max-w-2xl mb-12 sm:mb-16">
@@ -185,8 +185,8 @@ export const ContactSection: React.FC = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.7, delay: 0.4 }}
             className={`lg:col-span-7 bg-[#09090b]/90 backdrop-blur-xl border rounded-[24px] p-6 sm:p-8 shadow-[0_15px_45px_rgba(0,0,0,0.8)] relative z-10 transition-all duration-500 ${isFormHighlighted
-                ? "border-red-600 shadow-[0_0_50px_rgba(220,38,38,0.4)] scale-[1.01]"
-                : "border-white/15"
+              ? "border-red-600 shadow-[0_0_50px_rgba(220,38,38,0.4)] scale-[1.01]"
+              : "border-white/15"
               }`}
           >
             <div className="flex items-center justify-between mb-6">
@@ -222,8 +222,8 @@ export const ContactSection: React.FC = () => {
                   aria-invalid={!!errors.fullName}
                   aria-describedby={errors.fullName ? "fullNameError" : undefined}
                   className={`w-full rounded-xl bg-[#050505]/80 border px-4 py-3.5 text-white font-body text-sm placeholder-gray-500 focus:outline-none transition-all duration-300 ${errors.fullName
-                      ? "border-red-600 focus:border-red-600 focus:ring-1 focus:ring-red-600"
-                      : "border-white/15 focus:border-red-600 focus:ring-1 focus:ring-red-600"
+                    ? "border-red-600 focus:border-red-600 focus:ring-1 focus:ring-red-600"
+                    : "border-white/15 focus:border-red-600 focus:ring-1 focus:ring-red-600"
                     }`}
                 />
                 {errors.fullName && (
@@ -249,8 +249,8 @@ export const ContactSection: React.FC = () => {
                     aria-invalid={!!errors.email}
                     aria-describedby={errors.email ? "emailError" : undefined}
                     className={`w-full rounded-xl bg-[#050505]/80 border px-4 py-3.5 text-white font-body text-sm placeholder-gray-500 focus:outline-none transition-all duration-300 ${errors.email
-                        ? "border-red-600 focus:border-red-600 focus:ring-1 focus:ring-red-600"
-                        : "border-white/15 focus:border-red-600 focus:ring-1 focus:ring-red-600"
+                      ? "border-red-600 focus:border-red-600 focus:ring-1 focus:ring-red-600"
+                      : "border-white/15 focus:border-red-600 focus:ring-1 focus:ring-red-600"
                       }`}
                   />
                   {errors.email && (
@@ -274,8 +274,8 @@ export const ContactSection: React.FC = () => {
                     aria-invalid={!!errors.phone}
                     aria-describedby={errors.phone ? "phoneError" : undefined}
                     className={`w-full rounded-xl bg-[#050505]/80 border px-4 py-3.5 text-white font-body text-sm placeholder-gray-500 focus:outline-none transition-all duration-300 ${errors.phone
-                        ? "border-red-600 focus:border-red-600 focus:ring-1 focus:ring-red-600"
-                        : "border-white/15 focus:border-red-600 focus:ring-1 focus:ring-red-600"
+                      ? "border-red-600 focus:border-red-600 focus:ring-1 focus:ring-red-600"
+                      : "border-white/15 focus:border-red-600 focus:ring-1 focus:ring-red-600"
                       }`}
                   />
                   {errors.phone && (
@@ -301,8 +301,8 @@ export const ContactSection: React.FC = () => {
                   aria-invalid={!!errors.message}
                   aria-describedby={errors.message ? "messageError" : undefined}
                   className={`w-full rounded-xl bg-[#050505]/80 border px-4 py-3.5 text-white font-body text-sm placeholder-gray-500 focus:outline-none transition-all duration-300 resize-none ${errors.message
-                      ? "border-red-600 focus:border-red-600 focus:ring-1 focus:ring-red-600"
-                      : "border-white/15 focus:border-red-600 focus:ring-1 focus:ring-red-600"
+                    ? "border-red-600 focus:border-red-600 focus:ring-1 focus:ring-red-600"
+                    : "border-white/15 focus:border-red-600 focus:ring-1 focus:ring-red-600"
                     }`}
                 />
                 {errors.message && (

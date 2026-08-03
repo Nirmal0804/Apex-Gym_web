@@ -104,7 +104,7 @@ export const AboutSection: React.FC = () => {
       </div>
 
       {/* Main Container: Left Content | Right Gym Interior Image */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-center relative z-10 my-auto">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
 
           {/* Left Column (48% Width - lg:col-span-6) */}

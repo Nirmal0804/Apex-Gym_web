@@ -79,7 +79,7 @@ export const GallerySection: React.FC = () => {
       </div>
 
       {/* Main Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-center items-center relative z-10 my-auto">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col items-center relative z-10">
 
         {/* Section Header (Centered) */}
         <div className="flex flex-col items-center text-center space-y-4 max-w-2xl mb-12 sm:mb-16">
