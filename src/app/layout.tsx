@@ -8,6 +8,9 @@ import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 import { MembershipProvider } from "@/context/MembershipContext";
 import { JsonLd } from "@/components/JsonLd";
 import { Analytics } from "@/components/Analytics";
+import { LoadingScreen } from "@/components/ui/LoadingScreen";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
+import { BackToTop } from "@/components/ui/BackToTop";
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -93,6 +96,13 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/file.svg", type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/file.svg" }],
+  },
 };
 
 export default function RootLayout({
@@ -114,12 +124,15 @@ export default function RootLayout({
         className="min-h-full flex flex-col bg-[#050505] text-[#f9fafb] font-body relative leading-relaxed"
         suppressHydrationWarning
       >
+        <LoadingScreen />
+        <ScrollProgress />
         <SmoothScrollProvider>
           <MembershipProvider>
             <BackgroundGrid />
             <Navbar />
             <main className="flex-1 w-full relative z-10">{children}</main>
             <Footer />
+            <BackToTop />
           </MembershipProvider>
         </SmoothScrollProvider>
       </body>
