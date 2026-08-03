@@ -113,7 +113,7 @@ export const MembershipSection: React.FC = () => {
   return (
     <section
       id="membership"
-      className="relative w-full pt-8 sm:pt-10 lg:pt-12 pb-16 sm:pb-20 lg:pb-24 flex flex-col justify-start overflow-hidden bg-[#050505] select-none scroll-mt-20"
+      className="relative w-full pt-0 pb-16 sm:pb-20 lg:pb-24 flex flex-col justify-start overflow-hidden bg-[#050505] select-none scroll-mt-20"
     >
       {/* Background Layer 1: Huge Faded APEX Red Outline Watermark & Soft Radial Red Glow */}
       <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center overflow-hidden">
@@ -130,7 +130,7 @@ export const MembershipSection: React.FC = () => {
       </div>
 
       {/* Main Container: Centered Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col items-center relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col items-center relative z-10 -mt-6 lg:-mt-10">
 
         {/* Section Header (Centered with Flanking Red Lines) */}
         <div className="flex flex-col items-center text-center space-y-4 max-w-2xl mb-12 sm:mb-16 lg:mb-20">

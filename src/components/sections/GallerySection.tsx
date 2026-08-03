@@ -52,7 +52,7 @@ export const GallerySection: React.FC = () => {
   return (
     <section
       id="gallery"
-      className="relative w-full pt-8 sm:pt-10 lg:pt-12 pb-16 sm:pb-20 lg:pb-24 flex flex-col justify-start overflow-hidden bg-[#050505] select-none scroll-mt-20"
+      className="relative w-full pt-0 pb-16 sm:pb-20 lg:pb-24 flex flex-col justify-start overflow-hidden bg-[#050505] select-none scroll-mt-20"
     >
       {/* Lightbox Modal */}
       <Lightbox
@@ -79,7 +79,7 @@ export const GallerySection: React.FC = () => {
       </div>
 
       {/* Main Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col items-center relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col items-center relative z-10 -mt-6 lg:-mt-10">
 
         {/* Section Header (Centered) */}
         <div className="flex flex-col items-center text-center space-y-4 max-w-2xl mb-12 sm:mb-16">
