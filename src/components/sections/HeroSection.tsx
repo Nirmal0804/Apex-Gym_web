@@ -95,8 +95,11 @@ export const HeroSection: React.FC = () => {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="relative w-full max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl flex items-center justify-center mx-auto lg:-translate-x-10 xl:-translate-x-14"
+            className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl flex items-center justify-center mx-auto lg:translate-x-[120px] xl:translate-x-[140px] translate-y-6"
           >
+            {/* Soft Radial Ambient Glow behind Chest */}
+            <div className="absolute top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] h-[380px] bg-radial from-red-600/40 via-red-900/15 to-transparent rounded-full blur-[90px] pointer-events-none z-0" />
+
             <Image
               src="/images/hero-athlete-new.png"
               alt="APEX FITNESS Bodybuilder Posing"
@@ -104,20 +107,20 @@ export const HeroSection: React.FC = () => {
               height={534}
               priority
               fetchPriority="high"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-              className="w-full h-auto object-contain max-h-[580px] sm:max-h-[680px] lg:max-h-[780px] scale-110 sm:scale-115 lg:scale-120 drop-shadow-[0_25px_60px_rgba(220,38,38,0.35)] transition-transform duration-500 ease-out hover:scale-[1.25]"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 550px"
+              className="relative z-10 w-full h-auto object-contain max-h-[480px] sm:max-h-[560px] lg:max-h-[640px] drop-shadow-[0_20px_50px_rgba(0,0,0,0.85)] drop-shadow-[0_0_40px_rgba(220,38,38,0.4)] transition-transform duration-500 ease-out hover:scale-[1.05]"
             />
 
-            {/* Soft Feathered Bottom Gradient Line */}
-            <div className="absolute inset-x-0 -bottom-10 sm:-bottom-14 lg:-bottom-16 translate-x-10 lg:translate-x-16 h-20 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent pointer-events-none z-10" />
+            {/* Soft Feathered Bottom Gradient Line (Fades lower body into background) */}
+            <div className="absolute inset-x-0 -bottom-6 h-24 bg-gradient-to-t from-[#050505] via-[#050505]/70 to-transparent pointer-events-none z-20" />
           </motion.div>
 
-          {/* Floating Glassmorphic Stat Cards */}
+          {/* Floating Glassmorphic Stat Cards (70-90px closer to bodybuilder) */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="hidden lg:flex flex-col space-y-4 absolute -right-2 lg:-right-6 xl:-right-10 top-[38%] -translate-y-1/2 z-20 w-48 sm:w-52"
+            className="hidden lg:flex flex-col space-y-4 absolute right-4 lg:right-20 xl:right-28 top-[42%] -translate-y-1/2 z-30 w-48 sm:w-52"
           >
 
             {/* Stat Card 1 */}
