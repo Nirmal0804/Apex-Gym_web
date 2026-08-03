@@ -95,7 +95,7 @@ export const HeroSection: React.FC = () => {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl flex items-center justify-center mx-auto lg:translate-x-[120px] xl:translate-x-[140px] translate-y-6"
+            className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl flex items-center justify-center mx-auto lg:-translate-x-10 xl:-translate-x-16 translate-y-6"
           >
             {/* Soft Radial Ambient Glow behind Chest */}
             <div className="absolute top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] h-[380px] bg-radial from-red-600/40 via-red-900/15 to-transparent rounded-full blur-[90px] pointer-events-none z-0" />
@@ -115,12 +115,12 @@ export const HeroSection: React.FC = () => {
             <div className="absolute inset-x-0 -bottom-6 h-24 bg-gradient-to-t from-[#050505] via-[#050505]/70 to-transparent pointer-events-none z-20" />
           </motion.div>
 
-          {/* Floating Glassmorphic Stat Cards (70-90px closer to bodybuilder) */}
+          {/* Floating Glassmorphic Stat Cards */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="hidden lg:flex flex-col space-y-4 absolute right-4 lg:right-20 xl:right-28 top-[42%] -translate-y-1/2 z-30 w-48 sm:w-52"
+            className="hidden lg:flex flex-col space-y-4 absolute right-0 lg:right-2 xl:-right-6 top-[42%] -translate-y-1/2 z-30 w-48 sm:w-52"
           >
 
             {/* Stat Card 1 */}
