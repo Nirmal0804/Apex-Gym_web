@@ -103,6 +103,8 @@ export const HeroSection: React.FC = () => {
               width={995}
               height={680}
               priority
+              fetchPriority="high"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 995px"
               className="w-full h-auto object-contain max-h-[760px] sm:max-h-[860px] lg:max-h-[960px] scale-120 sm:scale-125 lg:scale-135 drop-shadow-[0_25px_60px_rgba(220,38,38,0.35)] transition-transform duration-500 ease-out hover:scale-[1.38]"
             />
 
