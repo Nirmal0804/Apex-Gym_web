@@ -101,7 +101,7 @@ export const HeroSection: React.FC = () => {
             <div className="absolute top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] h-[380px] bg-radial from-red-600/40 via-red-900/15 to-transparent rounded-full blur-[90px] pointer-events-none z-0" />
 
             <Image
-              src="/images/hero-athlete-new.png"
+              src="/images/hero-athlete-v2.png"
               alt="APEX FITNESS Bodybuilder Posing"
               width={1578}
               height={2193}
