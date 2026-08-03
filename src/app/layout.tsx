@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 import { MembershipProvider } from "@/context/MembershipContext";
 import { JsonLd } from "@/components/JsonLd";
+import { Analytics } from "@/components/Analytics";
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -107,6 +108,7 @@ export default function RootLayout({
     >
       <head>
         <JsonLd />
+        <Analytics />
       </head>
       <body
         className="min-h-full flex flex-col bg-[#050505] text-[#f9fafb] font-body relative leading-relaxed"

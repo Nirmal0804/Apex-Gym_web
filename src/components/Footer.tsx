@@ -1,4 +1,5 @@
 import React from "react";
+import { siteConfig } from "@/config/site";
 
 export const Footer: React.FC = () => {
   return (
@@ -21,7 +22,7 @@ export const Footer: React.FC = () => {
         <div className="flex items-center justify-center space-x-6 pt-1">
           {/* Instagram */}
           <a
-            href="https://instagram.com"
+            href={siteConfig.social.instagram}
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 h-10 rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:border-red-600/60 hover:bg-red-600/20 flex items-center justify-center transition-all duration-300 group shadow-md"
@@ -34,7 +35,7 @@ export const Footer: React.FC = () => {
 
           {/* Facebook */}
           <a
-            href="https://facebook.com"
+            href={siteConfig.social.facebook}
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 h-10 rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:border-red-600/60 hover:bg-red-600/20 flex items-center justify-center transition-all duration-300 group shadow-md"
@@ -47,7 +48,7 @@ export const Footer: React.FC = () => {
 
           {/* WhatsApp */}
           <a
-            href="https://whatsapp.com"
+            href={siteConfig.social.whatsapp}
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 h-10 rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-white hover:border-red-600/60 hover:bg-red-600/20 flex items-center justify-center transition-all duration-300 group shadow-md"

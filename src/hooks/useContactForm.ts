@@ -22,16 +22,18 @@ export interface ToastState {
   message: string;
 }
 
-/**
- * Modular contact form handler.
- * Easily replace or extend with EmailJS, Resend API, or a Next.js API route (/api/contact).
- */
 export async function sendContactInquiry(data: ContactFormData): Promise<{ success: boolean; message?: string }> {
-  // Simulating async API call (replace with fetch('/api/contact') or EmailJS)
-  await new Promise((resolve) => setTimeout(resolve, 1200));
+  const res = await fetch("/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
 
-  // Default modular success response
-  return { success: true, message: "Message sent successfully." };
+  const result = await res.json();
+  if (!res.ok) {
+    throw new Error(result.error || "Unable to send message. Please try again.");
+  }
+  return result;
 }
 
 export function useContactForm(selectedPlan?: string | null, clearSelectedPlan?: () => void) {

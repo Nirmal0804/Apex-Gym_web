@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useMembership } from "@/context/MembershipContext";
 import { useContactForm } from "@/hooks/useContactForm";
 import { Toast } from "@/components/ui/Toast";
+import { siteConfig } from "@/config/site";
 
 export const ContactSection: React.FC = () => {
   const { selectedPlan, clearPlan, isFormHighlighted } = useMembership();
@@ -102,15 +103,14 @@ export const ContactSection: React.FC = () => {
                   LOCATION
                 </h4>
                 <p className="font-body text-sm text-gray-200 leading-relaxed">
-                  123 Fitness Street <br />
-                  Chennai, Tamil Nadu
+                  {siteConfig.contact.address}
                 </p>
               </div>
             </div>
 
             {/* Google Maps Link Card */}
             <a
-              href="https://maps.google.com/?q=123+Fitness+Street+Chennai"
+              href={siteConfig.contact.mapsUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#09090b]/85 backdrop-blur-md border border-red-600/40 hover:border-red-600 rounded-2xl p-4 flex items-center justify-between text-xs font-heading font-bold uppercase tracking-wider text-white hover:text-red-500 shadow-[0_5px_20px_rgba(0,0,0,0.6)] hover:shadow-[0_0_25px_rgba(220,38,38,0.3)] hover:-translate-y-1 transition-all duration-300 group cursor-pointer"
@@ -136,7 +136,7 @@ export const ContactSection: React.FC = () => {
                   PHONE
                 </h4>
                 <p className="font-body text-sm text-gray-200">
-                  +91 98765 43210
+                  {siteConfig.contact.phone}
                 </p>
               </div>
             </div>
@@ -153,7 +153,7 @@ export const ContactSection: React.FC = () => {
                   EMAIL
                 </h4>
                 <p className="font-body text-sm text-gray-200">
-                  hello@apexfitness.com
+                  {siteConfig.contact.email}
                 </p>
               </div>
             </div>
@@ -170,8 +170,8 @@ export const ContactSection: React.FC = () => {
                   WORKING HOURS
                 </h4>
                 <p className="font-body text-xs sm:text-sm text-gray-200 leading-relaxed">
-                  Mon–Fri: 5:00 AM – 10:00 PM <br />
-                  Sat–Sun: 6:00 AM – 9:00 PM
+                  {siteConfig.contact.workingHours.weekdays} <br />
+                  {siteConfig.contact.workingHours.weekends}
                 </p>
               </div>
             </div>
