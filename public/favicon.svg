@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <rect width="512" height="512" rx="100" fill="#050505"/>
+  <rect width="512" height="512" rx="100" fill="none" stroke="#dc2626" stroke-width="12" stroke-opacity="0.6"/>
+  <!-- APEX Triangle / Peak Logo -->
+  <path d="M256 90 L410 400 L320 400 L256 260 L192 400 L102 400 Z" fill="#dc2626"/>
+  <path d="M256 160 L330 320 L285 320 L256 250 L227 320 L182 320 Z" fill="#ffffff"/>
+</svg>
