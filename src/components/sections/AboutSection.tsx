@@ -87,7 +87,7 @@ export const AboutSection: React.FC = () => {
   return (
     <section
       id="about"
-      className="relative w-full min-h-screen pt-4 sm:pt-6 lg:pt-8 pb-16 sm:pb-20 lg:pb-24 flex flex-col justify-between overflow-hidden bg-[#050505] select-none scroll-mt-20"
+      className="relative w-full pt-8 sm:pt-10 lg:pt-12 pb-16 sm:pb-20 lg:pb-24 flex flex-col justify-start overflow-hidden bg-[#050505] select-none scroll-mt-20"
     >
       {/* Background Layer 1: Huge Faded APEX Watermark & Ambient Red Radial Glow */}
       <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center overflow-hidden">
@@ -98,7 +98,7 @@ export const AboutSection: React.FC = () => {
 
         {/* Soft Radial Deep Red Ambient Glow behind image/content */}
         <div className="absolute right-[5%] top-[40%] -translate-y-1/2 w-[550px] h-[550px] sm:w-[750px] sm:h-[750px] bg-gradient-to-tr from-red-600/25 via-red-900/15 to-transparent rounded-full blur-[140px]" />
-        
+
         {/* Soft Vignette Overlay */}
         <div className="absolute inset-0 bg-radial from-transparent via-[#050505]/40 to-[#050505] opacity-90" />
       </div>
@@ -106,10 +106,10 @@ export const AboutSection: React.FC = () => {
       {/* Main Container: Left Content | Right Gym Interior Image */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-center relative z-10 my-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          
+
           {/* Left Column (48% Width - lg:col-span-6) */}
           <div className="lg:col-span-6 flex flex-col items-start space-y-6 text-left relative z-10">
-            
+
             {/* Small Tagline */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
@@ -226,7 +226,7 @@ export const AboutSection: React.FC = () => {
         className="w-full border-t border-white/10 bg-[#030303]/90 backdrop-blur-md py-8 relative z-20 mt-12 sm:mt-16"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center items-center divide-y md:divide-y-0 md:divide-x divide-white/10">
-          
+
           {/* Stat 1: Animated 1500+ */}
           <div className="flex flex-col items-center pt-4 md:pt-0">
             <span className="font-heading text-4xl sm:text-6xl font-black text-white tracking-tight flex items-baseline">

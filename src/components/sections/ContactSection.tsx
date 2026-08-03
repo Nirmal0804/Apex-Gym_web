@@ -14,7 +14,7 @@ export const ContactSection: React.FC = () => {
   return (
     <section
       id="contact"
-      className="relative w-full min-h-screen pt-4 sm:pt-6 lg:pt-8 pb-16 sm:pb-20 lg:pb-24 flex flex-col justify-between overflow-hidden bg-[#050505] select-none scroll-mt-20"
+      className="relative w-full pt-8 sm:pt-10 lg:pt-12 pb-16 sm:pb-20 lg:pb-24 flex flex-col justify-start overflow-hidden bg-[#050505] select-none scroll-mt-20"
     >
       {/* Toast Notification Container */}
       <Toast toast={toast} />
@@ -28,17 +28,17 @@ export const ContactSection: React.FC = () => {
 
         {/* Soft Radial Deep Red Ambient Glow */}
         <div className="absolute right-[10%] top-[45%] -translate-y-1/2 w-[550px] h-[550px] sm:w-[750px] sm:h-[750px] bg-gradient-to-tr from-red-600/25 via-red-900/10 to-transparent rounded-full blur-[140px]" />
-        
+
         {/* Soft Vignette Overlay */}
         <div className="absolute inset-0 bg-radial from-transparent via-[#050505]/40 to-[#050505] opacity-90" />
       </div>
 
       {/* Main Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-center relative z-10 my-auto">
-        
+
         {/* Section Header */}
         <div className="flex flex-col items-start space-y-4 max-w-2xl mb-12 sm:mb-16">
-          
+
           {/* Small Tagline */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -80,7 +80,7 @@ export const ContactSection: React.FC = () => {
 
         {/* Grid Layout: Left Column (40%) | Right Column (60%) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start relative z-10">
-          
+
           {/* Left Column (40% Width - lg:col-span-5): Contact Info Cards */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -89,7 +89,7 @@ export const ContactSection: React.FC = () => {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="lg:col-span-5 flex flex-col space-y-4"
           >
-            
+
             {/* Info Card 1: Location */}
             <div className="bg-[#09090b]/85 backdrop-blur-md border border-white/10 hover:border-red-600/60 rounded-2xl p-5 flex items-start space-x-4 shadow-[0_10px_30px_rgba(0,0,0,0.6)] hover:shadow-[0_0_25px_rgba(220,38,38,0.25)] hover:-translate-y-1 transition-all duration-300 group">
               <div className="w-10 h-10 rounded-xl bg-red-600/15 border border-red-600/30 flex items-center justify-center text-red-500 flex-shrink-0 group-hover:scale-110 transition-transform">
@@ -184,11 +184,10 @@ export const ContactSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className={`lg:col-span-7 bg-[#09090b]/90 backdrop-blur-xl border rounded-[24px] p-6 sm:p-8 shadow-[0_15px_45px_rgba(0,0,0,0.8)] relative z-10 transition-all duration-500 ${
-              isFormHighlighted
+            className={`lg:col-span-7 bg-[#09090b]/90 backdrop-blur-xl border rounded-[24px] p-6 sm:p-8 shadow-[0_15px_45px_rgba(0,0,0,0.8)] relative z-10 transition-all duration-500 ${isFormHighlighted
                 ? "border-red-600 shadow-[0_0_50px_rgba(220,38,38,0.4)] scale-[1.01]"
                 : "border-white/15"
-            }`}
+              }`}
           >
             <div className="flex items-center justify-between mb-6">
               <h3 className="font-heading text-xl sm:text-2xl font-extrabold uppercase tracking-wide text-white">
@@ -222,11 +221,10 @@ export const ContactSection: React.FC = () => {
                   placeholder="Enter your full name"
                   aria-invalid={!!errors.fullName}
                   aria-describedby={errors.fullName ? "fullNameError" : undefined}
-                  className={`w-full rounded-xl bg-[#050505]/80 border px-4 py-3.5 text-white font-body text-sm placeholder-gray-500 focus:outline-none transition-all duration-300 ${
-                    errors.fullName
+                  className={`w-full rounded-xl bg-[#050505]/80 border px-4 py-3.5 text-white font-body text-sm placeholder-gray-500 focus:outline-none transition-all duration-300 ${errors.fullName
                       ? "border-red-600 focus:border-red-600 focus:ring-1 focus:ring-red-600"
                       : "border-white/15 focus:border-red-600 focus:ring-1 focus:ring-red-600"
-                  }`}
+                    }`}
                 />
                 {errors.fullName && (
                   <span id="fullNameError" className="text-red-500 text-xs font-body mt-1.5 block">
@@ -250,11 +248,10 @@ export const ContactSection: React.FC = () => {
                     placeholder="your.email@example.com"
                     aria-invalid={!!errors.email}
                     aria-describedby={errors.email ? "emailError" : undefined}
-                    className={`w-full rounded-xl bg-[#050505]/80 border px-4 py-3.5 text-white font-body text-sm placeholder-gray-500 focus:outline-none transition-all duration-300 ${
-                      errors.email
+                    className={`w-full rounded-xl bg-[#050505]/80 border px-4 py-3.5 text-white font-body text-sm placeholder-gray-500 focus:outline-none transition-all duration-300 ${errors.email
                         ? "border-red-600 focus:border-red-600 focus:ring-1 focus:ring-red-600"
                         : "border-white/15 focus:border-red-600 focus:ring-1 focus:ring-red-600"
-                    }`}
+                      }`}
                   />
                   {errors.email && (
                     <span id="emailError" className="text-red-500 text-xs font-body mt-1.5 block">
@@ -276,11 +273,10 @@ export const ContactSection: React.FC = () => {
                     placeholder="+91 XXXXX XXXXX"
                     aria-invalid={!!errors.phone}
                     aria-describedby={errors.phone ? "phoneError" : undefined}
-                    className={`w-full rounded-xl bg-[#050505]/80 border px-4 py-3.5 text-white font-body text-sm placeholder-gray-500 focus:outline-none transition-all duration-300 ${
-                      errors.phone
+                    className={`w-full rounded-xl bg-[#050505]/80 border px-4 py-3.5 text-white font-body text-sm placeholder-gray-500 focus:outline-none transition-all duration-300 ${errors.phone
                         ? "border-red-600 focus:border-red-600 focus:ring-1 focus:ring-red-600"
                         : "border-white/15 focus:border-red-600 focus:ring-1 focus:ring-red-600"
-                    }`}
+                      }`}
                   />
                   {errors.phone && (
                     <span id="phoneError" className="text-red-500 text-xs font-body mt-1.5 block">
@@ -304,11 +300,10 @@ export const ContactSection: React.FC = () => {
                   placeholder="Tell us about your fitness goals..."
                   aria-invalid={!!errors.message}
                   aria-describedby={errors.message ? "messageError" : undefined}
-                  className={`w-full rounded-xl bg-[#050505]/80 border px-4 py-3.5 text-white font-body text-sm placeholder-gray-500 focus:outline-none transition-all duration-300 resize-none ${
-                    errors.message
+                  className={`w-full rounded-xl bg-[#050505]/80 border px-4 py-3.5 text-white font-body text-sm placeholder-gray-500 focus:outline-none transition-all duration-300 resize-none ${errors.message
                       ? "border-red-600 focus:border-red-600 focus:ring-1 focus:ring-red-600"
                       : "border-white/15 focus:border-red-600 focus:ring-1 focus:ring-red-600"
-                  }`}
+                    }`}
                 />
                 {errors.message && (
                   <span id="messageError" className="text-red-500 text-xs font-body mt-1.5 block">

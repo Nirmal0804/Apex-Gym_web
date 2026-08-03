@@ -92,7 +92,7 @@ export const ProgramsSection: React.FC = () => {
   return (
     <section
       id="programs"
-      className="relative w-full min-h-screen pt-4 sm:pt-6 lg:pt-8 pb-16 sm:pb-20 lg:pb-24 flex flex-col justify-between overflow-hidden bg-[#050505] select-none scroll-mt-20"
+      className="relative w-full pt-8 sm:pt-10 lg:pt-12 pb-16 sm:pb-20 lg:pb-24 flex flex-col justify-start overflow-hidden bg-[#050505] select-none scroll-mt-20"
     >
       {/* Background Layer 1: Huge Faded APEX Red Outline Watermark & Soft Radial Red Glow */}
       <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center overflow-hidden">
@@ -103,7 +103,7 @@ export const ProgramsSection: React.FC = () => {
 
         {/* Soft Radial Deep Red Ambient Glow */}
         <div className="absolute left-[15%] top-[50%] -translate-y-1/2 w-[550px] h-[550px] sm:w-[750px] sm:h-[750px] bg-gradient-to-tr from-red-600/25 via-red-900/10 to-transparent rounded-full blur-[140px]" />
-        
+
         {/* Soft Vignette Overlay */}
         <div className="absolute inset-0 bg-radial from-transparent via-[#050505]/40 to-[#050505] opacity-90" />
       </div>
@@ -111,10 +111,10 @@ export const ProgramsSection: React.FC = () => {
       {/* Main Container: 35% Left Column | 65% Right Column 2x2 Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-center relative z-10 my-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-          
+
           {/* Left Column (35% Width - lg:col-span-4) */}
           <div className="lg:col-span-4 flex flex-col items-start space-y-6 text-left relative z-10 lg:sticky lg:top-28">
-            
+
             {/* Small Tagline */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
@@ -156,7 +156,7 @@ export const ProgramsSection: React.FC = () => {
 
           {/* Right Column (65% Width - lg:col-span-8): 2x2 Grid */}
           <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6 relative z-10">
-            
+
             {/* Card 01: Strength Training */}
             <ProgramCard
               number="01"

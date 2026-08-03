@@ -52,7 +52,7 @@ export const GallerySection: React.FC = () => {
   return (
     <section
       id="gallery"
-      className="relative w-full min-h-[85vh] pt-4 sm:pt-6 lg:pt-8 pb-16 sm:pb-20 lg:pb-24 flex flex-col justify-between overflow-hidden bg-[#050505] select-none scroll-mt-20"
+      className="relative w-full pt-8 sm:pt-10 lg:pt-12 pb-16 sm:pb-20 lg:pb-24 flex flex-col justify-start overflow-hidden bg-[#050505] select-none scroll-mt-20"
     >
       {/* Lightbox Modal */}
       <Lightbox
@@ -73,17 +73,17 @@ export const GallerySection: React.FC = () => {
 
         {/* Soft Radial Ambient Glow */}
         <div className="absolute right-[15%] top-[45%] -translate-y-1/2 w-[550px] h-[550px] sm:w-[750px] sm:h-[750px] bg-gradient-to-tr from-red-600/20 via-red-900/10 to-transparent rounded-full blur-[140px]" />
-        
+
         {/* Soft Vignette Overlay */}
         <div className="absolute inset-0 bg-radial from-transparent via-[#050505]/40 to-[#050505] opacity-90" />
       </div>
 
       {/* Main Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-center items-center relative z-10 my-auto">
-        
+
         {/* Section Header (Centered) */}
         <div className="flex flex-col items-center text-center space-y-4 max-w-2xl mb-12 sm:mb-16">
-          
+
           {/* Small Tagline */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -124,7 +124,7 @@ export const GallerySection: React.FC = () => {
 
         {/* 4 Photo Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 w-full relative z-10">
-          
+
           {GALLERY_ITEMS.map((item, index) => (
             <motion.div
               key={index}

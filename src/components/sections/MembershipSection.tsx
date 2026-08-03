@@ -32,11 +32,10 @@ const PricingCard: React.FC<PricingCardProps> = ({
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, amount: 0.2 }}
     transition={{ duration: 0.7, delay }}
-    className={`group relative w-full rounded-[24px] p-6 sm:p-8 flex flex-col justify-between transition-all duration-500 cursor-pointer select-none ${
-      isFeatured
+    className={`group relative w-full rounded-[24px] p-6 sm:p-8 flex flex-col justify-between transition-all duration-500 cursor-pointer select-none ${isFeatured
         ? "bg-[#09090b]/95 backdrop-blur-xl border-2 border-red-600 shadow-[0_0_45px_rgba(220,38,38,0.4)] lg:-translate-y-4 z-20 hover:-translate-y-6 hover:shadow-[0_0_55px_rgba(220,38,38,0.55)] hover:border-red-500"
         : "bg-[#09090b]/85 backdrop-blur-md border border-white/10 hover:border-red-600/60 shadow-[0_10px_35px_rgba(0,0,0,0.8)] hover:shadow-[0_15px_40px_rgba(220,38,38,0.28)] hover:-translate-y-2 z-10"
-    }`}
+      }`}
   >
     {/* Featured "MOST POPULAR" Badge */}
     {badge && (
@@ -94,11 +93,10 @@ const PricingCard: React.FC<PricingCardProps> = ({
           e.preventDefault();
           onSelectPlan();
         }}
-        className={`w-full inline-flex items-center justify-center space-x-2 px-6 py-3.5 rounded-md font-heading text-xs sm:text-sm font-bold uppercase tracking-widest active:scale-95 transition-all duration-300 cursor-pointer ${
-          isFeatured
+        className={`w-full inline-flex items-center justify-center space-x-2 px-6 py-3.5 rounded-md font-heading text-xs sm:text-sm font-bold uppercase tracking-widest active:scale-95 transition-all duration-300 cursor-pointer ${isFeatured
             ? "text-white bg-red-600 hover:bg-red-700 shadow-[0_4px_25px_rgba(220,38,38,0.6)] hover:shadow-[0_6px_30px_rgba(220,38,38,0.8)]"
             : "text-white bg-transparent border border-red-600/60 hover:bg-red-600 hover:text-white"
-        }`}
+          }`}
       >
         <span>{buttonText}</span>
         <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -115,7 +113,7 @@ export const MembershipSection: React.FC = () => {
   return (
     <section
       id="membership"
-      className="relative w-full min-h-screen pt-4 sm:pt-6 lg:pt-8 pb-16 sm:pb-20 lg:pb-24 flex flex-col justify-between overflow-hidden bg-[#050505] select-none scroll-mt-20"
+      className="relative w-full pt-8 sm:pt-10 lg:pt-12 pb-16 sm:pb-20 lg:pb-24 flex flex-col justify-start overflow-hidden bg-[#050505] select-none scroll-mt-20"
     >
       {/* Background Layer 1: Huge Faded APEX Red Outline Watermark & Soft Radial Red Glow */}
       <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center overflow-hidden">
@@ -126,17 +124,17 @@ export const MembershipSection: React.FC = () => {
 
         {/* Soft Radial Deep Red Ambient Glow behind Center Card */}
         <div className="absolute left-1/2 top-[45%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] sm:w-[800px] sm:h-[800px] bg-gradient-to-tr from-red-600/25 via-red-900/10 to-transparent rounded-full blur-[150px]" />
-        
+
         {/* Soft Vignette Overlay */}
         <div className="absolute inset-0 bg-radial from-transparent via-[#050505]/40 to-[#050505] opacity-90" />
       </div>
 
       {/* Main Container: Centered Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 flex flex-col justify-center items-center relative z-10 my-auto">
-        
+
         {/* Section Header (Centered with Flanking Red Lines) */}
         <div className="flex flex-col items-center text-center space-y-4 max-w-2xl mb-12 sm:mb-16 lg:mb-20">
-          
+
           {/* Tagline with Flanking Red Lines */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -179,7 +177,7 @@ export const MembershipSection: React.FC = () => {
 
         {/* 3 Pricing Cards Row */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-6 w-full max-w-6xl items-stretch relative z-10">
-          
+
           {/* Card 01: BASIC */}
           <PricingCard
             title="BASIC"
