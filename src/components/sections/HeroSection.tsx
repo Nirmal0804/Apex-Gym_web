@@ -98,8 +98,8 @@ export const HeroSection: React.FC = () => {
             className="relative w-full max-w-2xl lg:max-w-3xl xl:max-w-4xl flex items-center justify-center mx-auto lg:-translate-x-48 xl:-translate-x-68"
           >
             <Image
-              src="/images/hero-athlete-isolated.png"
-              alt="APEX FITNESS Bodybuilder"
+              src="/images/hero-athlete-new.png"
+              alt="APEX FITNESS Bodybuilder Posing"
               width={383}
               height={534}
               priority
