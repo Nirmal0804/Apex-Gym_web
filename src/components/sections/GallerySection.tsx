@@ -52,7 +52,7 @@ export const GallerySection: React.FC = () => {
   return (
     <section
       id="gallery"
-      className="relative w-full min-h-[85vh] py-16 sm:py-20 lg:py-24 flex flex-col justify-between overflow-hidden bg-[#050505] select-none"
+      className="relative w-full min-h-[85vh] pt-4 sm:pt-6 lg:pt-8 pb-16 sm:pb-20 lg:pb-24 flex flex-col justify-between overflow-hidden bg-[#050505] select-none scroll-mt-20"
     >
       {/* Lightbox Modal */}
       <Lightbox
