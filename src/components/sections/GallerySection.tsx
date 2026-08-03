@@ -1,15 +1,69 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Lightbox, GalleryItem } from "@/components/ui/Lightbox";
+
+const GALLERY_ITEMS: GalleryItem[] = [
+  {
+    src: "/images/gallery-1.png",
+    alt: "APEX Heavy Lifting Athlete",
+    title: "HEAVY LIFTING ZONE",
+  },
+  {
+    src: "/images/gallery-2.png",
+    alt: "APEX Dumbbell Rack & Neon Sign",
+    title: "DUMBBELL RACK & NEON ATMOSPHERE",
+  },
+  {
+    src: "/images/gallery-3.png",
+    alt: "APEX Treadmill Cardio Area",
+    title: "HIGH-INTENSITY CARDIO SUITE",
+  },
+  {
+    src: "/images/gallery-4.png",
+    alt: "APEX Gym Interior & Squat Racks",
+    title: "INDUSTRIAL SQUAT RACK SANCTUARY",
+  },
+];
 
 export const GallerySection: React.FC = () => {
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const openLightbox = (index: number) => {
+    setCurrentIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+  };
+
+  const prevImage = () => {
+    setCurrentIndex((prev) => (prev - 1 + GALLERY_ITEMS.length) % GALLERY_ITEMS.length);
+  };
+
+  const nextImage = () => {
+    setCurrentIndex((prev) => (prev + 1) % GALLERY_ITEMS.length);
+  };
+
   return (
     <section
       id="gallery"
       className="relative w-full min-h-[85vh] py-16 sm:py-20 lg:py-24 flex flex-col justify-between overflow-hidden bg-[#050505] select-none"
     >
+      {/* Lightbox Modal */}
+      <Lightbox
+        isOpen={lightboxOpen}
+        currentIndex={currentIndex}
+        items={GALLERY_ITEMS}
+        onClose={closeLightbox}
+        onPrev={prevImage}
+        onNext={nextImage}
+      />
+
       {/* Background Layer 1: Huge Faded APEX Red Outline Watermark & Soft Radial Glow */}
       <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center overflow-hidden">
         {/* Giant Red Outline Watermark Text "APEX" */}
@@ -71,81 +125,41 @@ export const GallerySection: React.FC = () => {
         {/* 4 Photo Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 w-full relative z-10">
           
-          {/* Photo 1 */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="group relative rounded-[20px] overflow-hidden border border-white/10 hover:border-red-600/60 shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:shadow-[0_0_30px_rgba(220,38,38,0.35)] hover:-translate-y-1.5 transition-all duration-500 h-64 sm:h-72 lg:h-80 cursor-pointer"
-          >
-            <Image
-              src="/images/gallery-1.png"
-              alt="APEX Heavy Lifting Athlete"
-              width={600}
-              height={500}
-              priority
-              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
-          </motion.div>
-
-          {/* Photo 2 */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="group relative rounded-[20px] overflow-hidden border border-white/10 hover:border-red-600/60 shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:shadow-[0_0_30px_rgba(220,38,38,0.35)] hover:-translate-y-1.5 transition-all duration-500 h-64 sm:h-72 lg:h-80 cursor-pointer"
-          >
-            <Image
-              src="/images/gallery-2.png"
-              alt="APEX Dumbbell Rack & Neon Sign"
-              width={600}
-              height={500}
-              priority
-              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
-          </motion.div>
-
-          {/* Photo 3 */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="group relative rounded-[20px] overflow-hidden border border-white/10 hover:border-red-600/60 shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:shadow-[0_0_30px_rgba(220,38,38,0.35)] hover:-translate-y-1.5 transition-all duration-500 h-64 sm:h-72 lg:h-80 cursor-pointer"
-          >
-            <Image
-              src="/images/gallery-3.png"
-              alt="APEX Treadmill Cardio Area"
-              width={600}
-              height={500}
-              priority
-              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
-          </motion.div>
-
-          {/* Photo 4 */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="group relative rounded-[20px] overflow-hidden border border-white/10 hover:border-red-600/60 shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:shadow-[0_0_30px_rgba(220,38,38,0.35)] hover:-translate-y-1.5 transition-all duration-500 h-64 sm:h-72 lg:h-80 cursor-pointer"
-          >
-            <Image
-              src="/images/gallery-4.png"
-              alt="APEX Gym Interior & Squat Racks"
-              width={600}
-              height={500}
-              priority
-              className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity" />
-          </motion.div>
+          {GALLERY_ITEMS.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
+              onClick={() => openLightbox(index)}
+              className="group relative rounded-[20px] overflow-hidden border border-white/10 hover:border-red-600/60 shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:shadow-[0_0_30px_rgba(220,38,38,0.35)] hover:-translate-y-1.5 transition-all duration-500 h-64 sm:h-72 lg:h-80 cursor-pointer"
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  openLightbox(index);
+                }
+              }}
+              aria-label={`View ${item.title} in Lightbox`}
+            >
+              <Image
+                src={item.src}
+                alt={item.alt}
+                width={600}
+                height={500}
+                loading="lazy"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/80 via-transparent to-transparent opacity-60 group-hover:opacity-30 transition-opacity flex items-end p-4">
+                <span className="font-heading text-xs font-bold uppercase tracking-wider text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                  {item.title} ↗
+                </span>
+              </div>
+            </motion.div>
+          ))}
 
         </div>
 
