@@ -1,0 +1,236 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #050505;
+    --bg-secondary: #0f0f10;
+    --accent-red-from: #dc2626;
+    --accent-red-to: #7f1d1d;
+    --text-white: #ffffff;
+    --text-light-gray: #d1d5db;
+    --border-low-opacity: rgba(255, 255, 255, 0.08);
+
+    /* Border Radius Tokens */
+    --radius-button: 0.75rem; /* 12px */
+    --radius-card: 1rem;    /* 16px */
+    --radius-input: 0.5rem;   /* 8px */
+    --radius-image: 1rem;    /* 16px */
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-primary);
+    color: var(--text-white);
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-white);
+    font-family: var(--font-quattrocento), Georgia, serif;
+    line-height: 1.75;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-oswald), sans-serif;
+  }
+}
+
+/* Custom Typography Scale Utilities */
+.font-heading {
+  font-family: var(--font-oswald), sans-serif;
+}
+
+.font-body {
+  font-family: var(--font-quattrocento), Georgia, serif;
+}
+
+.text-hero {
+  font-family: var(--font-oswald), sans-serif;
+  font-size: clamp(2.5rem, 6vw + 1rem, 5.5rem);
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.text-section-title {
+  font-family: var(--font-oswald), sans-serif;
+  font-size: clamp(2rem, 4vw + 0.5rem, 3.75rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.text-card-title {
+  font-family: var(--font-oswald), sans-serif;
+  font-size: clamp(1.25rem, 2vw + 0.25rem, 1.75rem);
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
+.text-body {
+  font-family: var(--font-quattrocento), Georgia, serif;
+  font-size: clamp(0.95rem, 1vw + 0.5rem, 1.125rem);
+  line-height: 1.75;
+  color: var(--text-light-gray);
+}
+
+.text-small {
+  font-family: var(--font-quattrocento), Georgia, serif;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #9ca3af;
+}
+
+.text-button {
+  font-family: var(--font-oswald), sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Accent Gradient Utility */
+.bg-accent-gradient {
+  background: linear-gradient(135deg, #dc2626 0%, #7f1d1d 100%);
+}
+
+.bg-accent-gradient-hover {
+  background: linear-gradient(135deg, #ef4444 0%, #991b1b 100%);
+}
+
+.text-accent-gradient {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 50%, #991b1b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom technical background grid */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.bg-grid-mask {
+  mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0.2) 80%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* Shadow Presets */
+.shadow-card-subtle {
+  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.shadow-button-red {
+  box-shadow: 0 4px 20px -4px rgba(220, 38, 38, 0.35);
+}
+
+.shadow-button-red-hover {
+  box-shadow: 0 8px 25px -4px rgba(220, 38, 38, 0.5);
+}
+
+/* Animation Keyframes & Presets */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 6s ease-in-out 1.5s infinite;
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+/* Interactive Hover Utilities */
+.hover-lift {
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+.card-hover {
+  transition: transform 0.3s ease-out, border-color 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  border-color: rgba(220, 38, 38, 0.4);
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.9), 0 0 20px -5px rgba(220, 38, 38, 0.2);
+}
+
+.button-hover {
+  transition: transform 0.25s ease-out, background-color 0.25s ease-out, box-shadow 0.25s ease-out, border-color 0.25s ease-out;
+}
+.button-hover:hover {
+  transform: translateY(-2px);
+}
+.button-hover:active {
+  transform: translateY(0);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #dc2626;
+}
