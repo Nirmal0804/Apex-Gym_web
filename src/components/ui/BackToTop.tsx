@@ -41,7 +41,7 @@ export const BackToTop: React.FC = () => {
           onClick={scrollToTop}
           type="button"
           aria-label="Scroll Back to Top"
-          className="fixed bottom-6 right-6 z-40 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#09090b]/90 backdrop-blur-xl border border-red-600/60 text-white shadow-[0_0_20px_rgba(220,38,38,0.4)] hover:bg-red-600 hover:border-red-500 hover:shadow-[0_0_30px_rgba(220,38,38,0.7)] hover:-translate-y-1 active:scale-95 transition-all duration-300 flex items-center justify-center cursor-pointer group"
+          className="fixed bottom-6 right-6 z-40 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#09090b]/90 backdrop-blur-xl border border-red-600/60 text-white shadow-[0_0_20px_rgba(220,38,38,0.4)] hover:bg-red-600 hover:border-red-500 hover:shadow-[0_0_30px_rgba(220,38,38,0.7)] hover:-translate-y-1 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center cursor-pointer group"
         >
           <svg
             className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform duration-300"
