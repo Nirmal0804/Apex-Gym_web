@@ -95,7 +95,7 @@ export const HeroSection: React.FC = () => {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="relative w-full max-w-2xl lg:max-w-3xl xl:max-w-4xl flex items-center justify-center mx-auto lg:-translate-x-48 xl:-translate-x-68"
+            className="relative w-full max-w-md sm:max-w-lg lg:max-w-xl xl:max-w-2xl flex items-center justify-center mx-auto lg:-translate-x-10 xl:-translate-x-14"
           >
             <Image
               src="/images/hero-athlete-new.png"
@@ -104,12 +104,12 @@ export const HeroSection: React.FC = () => {
               height={534}
               priority
               fetchPriority="high"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 995px"
-              className="w-full h-auto object-contain max-h-[760px] sm:max-h-[860px] lg:max-h-[960px] scale-120 sm:scale-125 lg:scale-135 drop-shadow-[0_25px_60px_rgba(220,38,38,0.35)] transition-transform duration-500 ease-out hover:scale-[1.38]"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+              className="w-full h-auto object-contain max-h-[580px] sm:max-h-[680px] lg:max-h-[780px] scale-110 sm:scale-115 lg:scale-120 drop-shadow-[0_25px_60px_rgba(220,38,38,0.35)] transition-transform duration-500 ease-out hover:scale-[1.25]"
             />
 
             {/* Soft Feathered Bottom Gradient Line */}
-            <div className="absolute inset-x-0 -bottom-16 sm:-bottom-20 lg:-bottom-22 translate-x-28 lg:translate-x-44 h-24 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent pointer-events-none z-10" />
+            <div className="absolute inset-x-0 -bottom-10 sm:-bottom-14 lg:-bottom-16 translate-x-10 lg:translate-x-16 h-20 bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent pointer-events-none z-10" />
           </motion.div>
 
           {/* Floating Glassmorphic Stat Cards */}
