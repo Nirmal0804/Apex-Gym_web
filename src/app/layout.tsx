@@ -5,6 +5,7 @@ import { BackgroundGrid } from "@/components/BackgroundGrid";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
+import { MembershipProvider } from "@/context/MembershipContext";
 
 const oswald = Oswald({
   variable: "--font-oswald",
@@ -42,10 +43,12 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <SmoothScrollProvider>
-          <BackgroundGrid />
-          <Navbar />
-          <main className="flex-1 w-full relative z-10">{children}</main>
-          <Footer />
+          <MembershipProvider>
+            <BackgroundGrid />
+            <Navbar />
+            <main className="flex-1 w-full relative z-10">{children}</main>
+            <Footer />
+          </MembershipProvider>
         </SmoothScrollProvider>
       </body>
     </html>

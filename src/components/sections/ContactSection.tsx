@@ -1,22 +1,23 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
+import { useMembership } from "@/context/MembershipContext";
+import { useContactForm } from "@/hooks/useContactForm";
+import { Toast } from "@/components/ui/Toast";
 
 export const ContactSection: React.FC = () => {
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
-  };
+  const { selectedPlan, clearPlan, isFormHighlighted } = useMembership();
+  const { values, errors, isSubmitting, toast, handleChange, handleSubmit } = useContactForm(selectedPlan, clearPlan);
 
   return (
     <section
       id="contact"
       className="relative w-full min-h-screen py-16 sm:py-20 lg:py-24 flex flex-col justify-between overflow-hidden bg-[#050505] select-none"
     >
+      {/* Toast Notification Container */}
+      <Toast toast={toast} />
+
       {/* Background Layer 1: Huge Faded APEX Red Outline Watermark & Soft Radial Glow */}
       <div className="absolute inset-0 pointer-events-none z-0 flex items-center justify-center overflow-hidden">
         {/* Faded Watermark Text "APEX" */}
@@ -177,91 +178,170 @@ export const ContactSection: React.FC = () => {
 
           </motion.div>
 
-          {/* Right Column (60% Width - lg:col-span-7): Form */}
+          {/* Right Column (60% Width - lg:col-span-7): Premium Contact Form */}
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="lg:col-span-7 bg-[#09090b]/90 backdrop-blur-xl border border-white/15 rounded-[24px] p-6 sm:p-8 shadow-[0_15px_45px_rgba(0,0,0,0.8)] relative z-10"
+            className={`lg:col-span-7 bg-[#09090b]/90 backdrop-blur-xl border rounded-[24px] p-6 sm:p-8 shadow-[0_15px_45px_rgba(0,0,0,0.8)] relative z-10 transition-all duration-500 ${
+              isFormHighlighted
+                ? "border-red-600 shadow-[0_0_50px_rgba(220,38,38,0.4)] scale-[1.01]"
+                : "border-white/15"
+            }`}
           >
-            <h3 className="font-heading text-xl sm:text-2xl font-extrabold uppercase tracking-wide text-white mb-6">
-              SEND A MESSAGE
-            </h3>
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="font-heading text-xl sm:text-2xl font-extrabold uppercase tracking-wide text-white">
+                SEND A MESSAGE
+              </h3>
 
-            {submitted ? (
-              <div className="p-6 rounded-xl bg-red-600/20 border border-red-600/50 text-center text-white space-y-2 animate-fadeIn">
-                <div className="text-2xl">✓</div>
-                <h4 className="font-heading text-lg font-bold uppercase">Message Sent Successfully</h4>
-                <p className="font-body text-xs text-gray-300">Thank you! Our APEX team will get back to you shortly.</p>
+              {/* Prefilled Plan Badge (if plan selected) */}
+              {selectedPlan && (
+                <span className="px-3 py-1 rounded-md font-heading text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white bg-red-600/20 border border-red-600/50 flex items-center space-x-1">
+                  <span className="text-red-500">★</span>
+                  <span>{selectedPlan}</span>
+                </span>
+              )}
+            </div>
+
+            <form onSubmit={handleSubmit} noValidate className="space-y-5">
+              {/* Hidden selected plan field */}
+              <input type="hidden" name="selectedPlan" value={selectedPlan || ""} />
+
+              {/* Full Name */}
+              <div>
+                <label htmlFor="fullNameInput" className="block font-heading text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">
+                  FULL NAME
+                </label>
+                <input
+                  id="fullNameInput"
+                  name="fullName"
+                  type="text"
+                  value={values.fullName}
+                  onChange={handleChange}
+                  placeholder="Enter your full name"
+                  aria-invalid={!!errors.fullName}
+                  aria-describedby={errors.fullName ? "fullNameError" : undefined}
+                  className={`w-full rounded-xl bg-[#050505]/80 border px-4 py-3.5 text-white font-body text-sm placeholder-gray-500 focus:outline-none transition-all duration-300 ${
+                    errors.fullName
+                      ? "border-red-600 focus:border-red-600 focus:ring-1 focus:ring-red-600"
+                      : "border-white/15 focus:border-red-600 focus:ring-1 focus:ring-red-600"
+                  }`}
+                />
+                {errors.fullName && (
+                  <span id="fullNameError" className="text-red-500 text-xs font-body mt-1.5 block">
+                    {errors.fullName}
+                  </span>
+                )}
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                {/* Full Name */}
+
+              {/* Email Address & Phone Number Row */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block font-heading text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">
-                    FULL NAME
+                  <label htmlFor="emailInput" className="block font-heading text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">
+                    EMAIL ADDRESS
                   </label>
                   <input
-                    type="text"
-                    required
-                    placeholder="Enter your full name"
-                    className="w-full rounded-xl bg-[#050505]/80 border border-white/15 px-4 py-3.5 text-white font-body text-sm placeholder-gray-500 focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-all duration-300"
+                    id="emailInput"
+                    name="email"
+                    type="email"
+                    value={values.email}
+                    onChange={handleChange}
+                    placeholder="your.email@example.com"
+                    aria-invalid={!!errors.email}
+                    aria-describedby={errors.email ? "emailError" : undefined}
+                    className={`w-full rounded-xl bg-[#050505]/80 border px-4 py-3.5 text-white font-body text-sm placeholder-gray-500 focus:outline-none transition-all duration-300 ${
+                      errors.email
+                        ? "border-red-600 focus:border-red-600 focus:ring-1 focus:ring-red-600"
+                        : "border-white/15 focus:border-red-600 focus:ring-1 focus:ring-red-600"
+                    }`}
                   />
+                  {errors.email && (
+                    <span id="emailError" className="text-red-500 text-xs font-body mt-1.5 block">
+                      {errors.email}
+                    </span>
+                  )}
                 </div>
 
-                {/* Email Address & Phone Number Row */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label className="block font-heading text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">
-                      EMAIL ADDRESS
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="your.email@example.com"
-                      className="w-full rounded-xl bg-[#050505]/80 border border-white/15 px-4 py-3.5 text-white font-body text-sm placeholder-gray-500 focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-all duration-300"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block font-heading text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">
-                      PHONE NUMBER
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      placeholder="+91 XXXXX XXXXX"
-                      className="w-full rounded-xl bg-[#050505]/80 border border-white/15 px-4 py-3.5 text-white font-body text-sm placeholder-gray-500 focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-all duration-300"
-                    />
-                  </div>
-                </div>
-
-                {/* Message */}
                 <div>
-                  <label className="block font-heading text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">
-                    YOUR MESSAGE
+                  <label htmlFor="phoneInput" className="block font-heading text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">
+                    PHONE NUMBER
                   </label>
-                  <textarea
-                    rows={4}
-                    required
-                    placeholder="Tell us about your fitness goals..."
-                    className="w-full rounded-xl bg-[#050505]/80 border border-white/15 px-4 py-3.5 text-white font-body text-sm placeholder-gray-500 focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 transition-all duration-300 resize-none"
+                  <input
+                    id="phoneInput"
+                    name="phone"
+                    type="tel"
+                    value={values.phone}
+                    onChange={handleChange}
+                    placeholder="+91 XXXXX XXXXX"
+                    aria-invalid={!!errors.phone}
+                    aria-describedby={errors.phone ? "phoneError" : undefined}
+                    className={`w-full rounded-xl bg-[#050505]/80 border px-4 py-3.5 text-white font-body text-sm placeholder-gray-500 focus:outline-none transition-all duration-300 ${
+                      errors.phone
+                        ? "border-red-600 focus:border-red-600 focus:ring-1 focus:ring-red-600"
+                        : "border-white/15 focus:border-red-600 focus:ring-1 focus:ring-red-600"
+                    }`}
                   />
+                  {errors.phone && (
+                    <span id="phoneError" className="text-red-500 text-xs font-body mt-1.5 block">
+                      {errors.phone}
+                    </span>
+                  )}
                 </div>
+              </div>
 
-                {/* Send Button */}
-                <button
-                  type="submit"
-                  className="inline-flex items-center justify-center space-x-2.5 px-8 py-4 rounded-md font-heading text-xs sm:text-sm font-bold uppercase tracking-widest text-white bg-red-600 hover:bg-red-700 shadow-[0_4px_25px_rgba(220,38,38,0.45)] hover:shadow-[0_6px_30px_rgba(220,38,38,0.65)] active:scale-95 transition-all duration-300 cursor-pointer select-none w-full sm:w-auto"
-                >
-                  <span>SEND MESSAGE</span>
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </button>
-              </form>
-            )}
+              {/* Message */}
+              <div>
+                <label htmlFor="messageInput" className="block font-heading text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">
+                  YOUR MESSAGE
+                </label>
+                <textarea
+                  id="messageInput"
+                  name="message"
+                  rows={4}
+                  value={values.message}
+                  onChange={handleChange}
+                  placeholder="Tell us about your fitness goals..."
+                  aria-invalid={!!errors.message}
+                  aria-describedby={errors.message ? "messageError" : undefined}
+                  className={`w-full rounded-xl bg-[#050505]/80 border px-4 py-3.5 text-white font-body text-sm placeholder-gray-500 focus:outline-none transition-all duration-300 resize-none ${
+                    errors.message
+                      ? "border-red-600 focus:border-red-600 focus:ring-1 focus:ring-red-600"
+                      : "border-white/15 focus:border-red-600 focus:ring-1 focus:ring-red-600"
+                  }`}
+                />
+                {errors.message && (
+                  <span id="messageError" className="text-red-500 text-xs font-body mt-1.5 block">
+                    {errors.message}
+                  </span>
+                )}
+              </div>
+
+              {/* Send Button with Loading Spinner */}
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                aria-label="Send Message"
+                className="inline-flex items-center justify-center space-x-2.5 px-8 py-4 rounded-md font-heading text-xs sm:text-sm font-bold uppercase tracking-widest text-white bg-red-600 hover:bg-red-700 disabled:opacity-75 disabled:cursor-not-allowed shadow-[0_4px_25px_rgba(220,38,38,0.45)] hover:shadow-[0_6px_30px_rgba(220,38,38,0.65)] active:scale-95 transition-all duration-300 cursor-pointer select-none w-full sm:w-auto"
+              >
+                {isSubmitting ? (
+                  <>
+                    <svg className="animate-spin w-4 h-4 text-white" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                    </svg>
+                    <span>SENDING...</span>
+                  </>
+                ) : (
+                  <>
+                    <span>SEND MESSAGE</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </>
+                )}
+              </button>
+            </form>
           </motion.div>
 
         </div>
