@@ -24,7 +24,7 @@ export const HeroSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex-1 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10 my-auto">
 
         {/* Left Column (42% Width - lg:col-span-5) */}
-        <div className="lg:col-span-5 flex flex-col items-start space-y-6 text-left relative z-30 -mt-20 sm:-mt-24 lg:-mt-28">
+        <div className="lg:col-span-5 flex flex-col items-start space-y-5 sm:space-y-6 text-left relative z-30 pt-4 sm:pt-6 lg:pt-0 lg:-mt-28">
 
           {/* Tagline */}
           <motion.span
@@ -41,7 +41,7 @@ export const HeroSection: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="font-heading text-5xl sm:text-7xl lg:text-[5.85rem] font-black uppercase tracking-tight leading-[0.91] text-gray-100"
+            className="font-heading text-4xl sm:text-6xl lg:text-[5.85rem] font-black uppercase tracking-tight leading-[0.93] lg:leading-[0.91] text-gray-100"
           >
             REACH YOUR <br />
             <span className="text-red-600 drop-shadow-[0_0_40px_rgba(220,38,38,0.5)]">
@@ -49,12 +49,12 @@ export const HeroSection: React.FC = () => {
             </span>
           </motion.h1>
 
-          {/* Subtitle (Quattrocento font) */}
+          {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="font-body text-lg sm:text-xl text-gray-300 leading-relaxed max-w-md"
+            className="font-body text-base sm:text-xl text-gray-300 leading-relaxed max-w-md"
           >
             Train harder. <br />
             Move smarter. <br />
@@ -66,11 +66,11 @@ export const HeroSection: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-1 w-full sm:w-auto"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-1 w-full sm:w-auto"
           >
             <a
               href="#membership"
-              className="inline-flex items-center justify-center space-x-2.5 px-7 py-4 rounded-md font-heading text-xs sm:text-sm font-semibold uppercase tracking-widest text-white bg-red-600 hover:bg-red-700 shadow-[0_4px_25px_rgba(220,38,38,0.45)] hover:shadow-[0_6px_30px_rgba(220,38,38,0.65)] active:scale-95 transition-all duration-300 cursor-pointer select-none"
+              className="inline-flex items-center justify-center space-x-2.5 px-7 py-3.5 sm:py-4 rounded-md font-heading text-xs sm:text-sm font-semibold uppercase tracking-widest text-white bg-red-600 hover:bg-red-700 shadow-[0_4px_25px_rgba(220,38,38,0.45)] hover:shadow-[0_6px_30px_rgba(220,38,38,0.65)] active:scale-95 transition-all duration-300 cursor-pointer select-none text-center"
             >
               <span>JOIN NOW</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -80,25 +80,25 @@ export const HeroSection: React.FC = () => {
 
             <a
               href="#membership"
-              className="inline-flex items-center justify-center px-7 py-4 rounded-md font-heading text-xs sm:text-sm font-semibold uppercase tracking-widest text-white bg-transparent border border-white/25 hover:border-white/60 hover:bg-white/5 active:scale-95 transition-all duration-300 cursor-pointer select-none"
+              className="inline-flex items-center justify-center px-7 py-3.5 sm:py-4 rounded-md font-heading text-xs sm:text-sm font-semibold uppercase tracking-widest text-white bg-transparent border border-white/25 hover:border-white/60 hover:bg-white/5 active:scale-95 transition-all duration-300 cursor-pointer select-none text-center"
             >
               VIEW MEMBERSHIP
             </a>
           </motion.div>
         </div>
 
-        {/* Right Column (58% Width - lg:col-span-7): Centered Bodybuilder + Staggered Glassmorphic Stat Cards */}
-        <div className="lg:col-span-7 relative flex items-center justify-center lg:justify-center z-10 -mt-16 lg:-mt-24">
+        {/* Right Column (58% Width - lg:col-span-7): Bodybuilder + Stat Cards */}
+        <div className="lg:col-span-7 relative flex flex-col items-center justify-center z-10 mt-6 sm:mt-8 lg:-mt-24">
 
           {/* Bodybuilder Image Container */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="relative w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl flex items-center justify-center mx-auto lg:-translate-x-10 xl:-translate-x-16 translate-y-6"
+            className="relative w-full max-w-xs sm:max-w-md lg:max-w-lg xl:max-w-xl flex items-center justify-center mx-auto lg:-translate-x-10 xl:-translate-x-16 translate-y-0 lg:translate-y-6"
           >
             {/* Soft Radial Ambient Glow behind Chest */}
-            <div className="absolute top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] h-[380px] bg-radial from-red-600/40 via-red-900/15 to-transparent rounded-full blur-[90px] pointer-events-none z-0" />
+            <div className="absolute top-[35%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] sm:w-[380px] h-[280px] sm:h-[380px] bg-radial from-red-600/40 via-red-900/15 to-transparent rounded-full blur-[70px] sm:blur-[90px] pointer-events-none z-0" />
 
             <Image
               src="/images/hero-athlete-v2.png"
@@ -108,21 +108,20 @@ export const HeroSection: React.FC = () => {
               priority
               fetchPriority="high"
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 550px"
-              className="relative z-10 w-full h-auto object-contain max-h-[480px] sm:max-h-[560px] lg:max-h-[640px] drop-shadow-[0_20px_50px_rgba(0,0,0,0.85)] drop-shadow-[0_0_40px_rgba(220,38,38,0.4)] transition-transform duration-500 ease-out hover:scale-[1.05]"
+              className="relative z-10 w-full h-auto object-contain max-h-[320px] sm:max-h-[460px] lg:max-h-[640px] drop-shadow-[0_20px_50px_rgba(0,0,0,0.85)] drop-shadow-[0_0_40px_rgba(220,38,38,0.4)] transition-transform duration-500 ease-out hover:scale-[1.05]"
             />
 
-            {/* Soft Feathered Bottom Gradient Line (Fades lower body into background) */}
+            {/* Soft Feathered Bottom Gradient Line */}
             <div className="absolute inset-x-0 -bottom-6 h-24 bg-gradient-to-t from-[#050505] via-[#050505]/70 to-transparent pointer-events-none z-20" />
           </motion.div>
 
-          {/* Floating Glassmorphic Stat Cards */}
+          {/* Desktop Floating Glassmorphic Stat Cards (UNTOUCHED on Desktop) */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             className="hidden lg:flex flex-col space-y-4 absolute right-0 lg:right-2 xl:-right-6 top-[42%] -translate-y-1/2 z-30 w-48 sm:w-52"
           >
-
             {/* Stat Card 1 */}
             <motion.div
               animate={{ y: [0, -5, 0] }}
@@ -175,11 +174,58 @@ export const HeroSection: React.FC = () => {
             </motion.div>
           </motion.div>
 
+          {/* Mobile Glassmorphic Stat Cards (Displayed below image on screens < 1024px) */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 w-full mt-6 px-1 lg:hidden relative z-30"
+          >
+            {/* Mobile Stat Card 1 */}
+            <div className="bg-[#0a0a0c]/80 backdrop-blur-xl border border-white/15 rounded-xl p-3.5 flex items-center space-x-3 shadow-[0_10px_25px_rgba(0,0,0,0.7)]">
+              <div className="w-9 h-9 rounded-lg bg-red-600/20 border border-red-600/40 flex items-center justify-center text-red-500 flex-shrink-0">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              </div>
+              <div>
+                <div className="font-heading text-lg font-extrabold text-white tracking-wide">800+</div>
+                <div className="font-heading text-[9px] uppercase tracking-widest text-gray-400">MEMBERS</div>
+              </div>
+            </div>
+
+            {/* Mobile Stat Card 2 */}
+            <div className="bg-[#0a0a0c]/80 backdrop-blur-xl border border-white/15 rounded-xl p-3.5 flex items-center space-x-3 shadow-[0_10px_25px_rgba(0,0,0,0.7)]">
+              <div className="w-9 h-9 rounded-lg bg-red-600/20 border border-red-600/40 flex items-center justify-center text-red-500 flex-shrink-0">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div>
+                <div className="font-heading text-lg font-extrabold text-white tracking-wide">12</div>
+                <div className="font-heading text-[9px] uppercase tracking-widest text-gray-400">CERTIFIED COACHES</div>
+              </div>
+            </div>
+
+            {/* Mobile Stat Card 3 */}
+            <div className="bg-[#0a0a0c]/80 backdrop-blur-xl border border-white/15 rounded-xl p-3.5 flex items-center space-x-3 shadow-[0_10px_25px_rgba(0,0,0,0.7)]">
+              <div className="w-9 h-9 rounded-lg bg-red-600/20 border border-red-600/40 flex items-center justify-center text-red-500 flex-shrink-0">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div>
+                <div className="font-heading text-lg font-extrabold text-white tracking-wide">24/7</div>
+                <div className="font-heading text-[9px] uppercase tracking-widest text-gray-400">VIP ACCESS</div>
+              </div>
+            </div>
+          </motion.div>
+
         </div>
       </div>
 
       {/* Full-Width Bottom Motivational Ticker Bar */}
-      <div className="w-full border-t border-b border-white/10 bg-[#030303]/90 backdrop-blur-md py-3.5 relative z-30 -mt-20 sm:-mt-24 lg:-mt-32">
+      <div className="w-full border-t border-b border-white/10 bg-[#030303]/90 backdrop-blur-md py-3.5 relative z-30 mt-6 sm:mt-8 lg:-mt-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center space-x-4 text-xs sm:text-sm font-heading font-semibold uppercase tracking-[0.25em]">
           <span className="text-gray-400">DISCIPLINE.</span>
           <span className="text-gray-400">DEDICATION.</span>
